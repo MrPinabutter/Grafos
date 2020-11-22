@@ -43,4 +43,5 @@ def caminho(grafo, vertice, visitados):
       visitados.append(i)
       caminho(grafo, i, visitados)
 
+
 caminho(grafo, 1, [])
