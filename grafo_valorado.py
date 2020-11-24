@@ -31,6 +31,46 @@ def Prim(grafo, vertice, passou, extremidades):
         if aresta.value > maior:
             maior = aresta
     passou.append(aresta)
-    
 
-buscaArestas(grafo_valorado, 1)
+def isConectado(grafo, vertice, passou, nVert):
+    pass
+
+
+# Ordenando o grafo por peso
+def ordenaGrafo(grafo, vetor, n):
+    menor = 0
+    for idx, aresta in enumerate(grafo):
+        if idx == 0: 
+            menor = aresta
+        if aresta.value < menor.value:
+            menor = aresta
+    vetor.append(menor)
+    grafo.remove(menor)
+    print(menor.value)
+    if len(vetor) != n:
+        vetor = ordenaGrafo(grafo, vetor, n)
+    return vetor
+
+# Definindo a arvore geradora minima
+def Kruskal(grafoOrdenado):
+    arvoreGeradoraMinima = []
+    cont = 0
+    for aresta in grafoOrdenado:
+        cont += 1
+        if formaCiclo():
+            arvoreGeradoraMinima.append(aresta)
+            formaCiclo
+    return arvoreGeradoraMinima
+
+# Verificando se existem ciclos
+def formaCiclo():
+    pass
+
+# Selecionando um grafo ordenado
+grafo = ordenaGrafo(grafo_valorado, [], len(grafo_valorado))
+
+# Usando ele no algoritmo de Kruskal
+agm = Kruskal(grafo)
+
+for arestas in agm:
+    print(f'a arvore {arestas.value}')
