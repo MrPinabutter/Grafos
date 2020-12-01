@@ -17,7 +17,6 @@ def isConectado(grafo, vertice, visitados):
     for vizinho in grafo[vertice]:
         if vizinho not in visitados:
             isConectado(grafo, vizinho, visitados)
-    print()
     return len(visitados) == len(grafo)
 print('O grafo é conectado' if isConectado(grafo, 0, []) else 'O grafo não é conectado')
 
