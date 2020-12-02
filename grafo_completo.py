@@ -42,7 +42,7 @@ def isRegular(grafo):
 
 print('O grafo é regular' if isRegular(grafo) else 'O grafo não é regular')
 
-n = int(input('Quantos vertices tem o seu grafo? '))
+n = int(input('Quantos vertices tem o seu subgrafo? '))
 
 grafo = []
 for i in range(n):
@@ -53,4 +53,4 @@ for i in range(n):
         vizinhos = [int(x) for x in vizinhos]
     grafo.append(vizinhos)
 
-print(f'Seu Grafo: {grafo}')
+print(f'Seu subrafo: {grafo}')
