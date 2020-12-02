@@ -41,3 +41,16 @@ def isRegular(grafo):
         
 
 print('O grafo é regular' if isRegular(grafo) else 'O grafo não é regular')
+
+n = int(input('Quantos vertices tem o seu grafo? '))
+
+grafo = []
+for i in range(n):
+    vizinhos = input(f'Digite os todos vizinhos, separado por espaço, do vertice {i}: ').split(' ')
+    if vizinhos == ['']:
+        vizinhos = [i]
+    else:
+        vizinhos = [int(x) for x in vizinhos]
+    grafo.append(vizinhos)
+
+print(f'Seu Grafo: {grafo}')
