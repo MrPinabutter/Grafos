@@ -13,7 +13,7 @@ for i in range(n):
 print(f'Seu Grafo: {grafo}')
 print()
 
-def isConectado(grafo, vertice, visitados):
+def isConectado(grafo, vertice, visitados=[]):
     visitados.append(vertice)
     cont = 0
     # Percorre um caminho por todos os vizinhos do vertice inicial
