@@ -22,4 +22,4 @@ for vertice, vizinhos in enumerate(grafo):
             peso = float(input(f'Digite o peso dos pares de vertices ({vizinho}, {vertice}): '))
             arestas[(vizinho, vertice)] = peso
 
-print(f'As arestas ligadas com seus respectivos pesos: {grafoPesado}')  # OBS: Ficam de fora os vertices isolados do grafo nesta contagem
+print(f'As arestas ligadas com seus respectivos pesos: {arestas}')  # OBS: Ficam de fora os vertices isolados do grafo nesta contagem

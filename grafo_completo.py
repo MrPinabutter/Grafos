@@ -41,6 +41,22 @@ def isRegular(grafo):
     return True
         
 print('O grafo é regular' if isRegular(grafo) else 'O grafo não é regular')
+
+# Para saber se o grafo forma um ciclo observa-se todos os vizinhos de cada vertice, se um vizinho se repetir, há um ciclo.
+def isCiclo(grafo, vertice, visitados=[]):
+    ret = False
+    for vizinho in grafo[vertice]:
+        if vizinho not in visitados:
+            visitados.append(vizinho)
+            ret = isCiclo(grafo, vizinho, visitados)
+        else:
+            return True
+
+    return ret
+
+print('Ele forma ciclos' if isCiclo(grafo, 0) else "Ele não forma ciclo")
+
+
 print('-='*27)
 print('Agora vamos comparar seu grafo com o outro a seguir')
 print('-='*27)
