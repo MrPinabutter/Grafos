@@ -1,3 +1,7 @@
+'''
+Estes algoritmos servem apenas para grafos simples, sem arestas paralelas na sua composição.
+'''
+
 n = int(input('Quantos vertices tem o seu grafo? '))
 
 grafo = []
