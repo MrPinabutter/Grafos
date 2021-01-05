@@ -54,6 +54,7 @@ def dijkstra(grafo, origem, destino):
             caminho.insert(0, noAtual)
             noAtual = track[noAtual]
         except KeyError:
+            print("Impossivel chegar ao destino")
             break
 
     caminho.insert(0, origem)
@@ -61,5 +62,6 @@ def dijkstra(grafo, origem, destino):
     if menorDistancia[str(destino)] < float('inf'):
         print("Distancia mais curta é ", menorDistancia[str(destino)])
         print('Caminho ', caminho)
-
-dijkstra(grafo, '0', '2')
+a = input('Digite a origem de busca: ')
+b = input('Digite o destino: ')
+dijkstra(grafo, a, b)
