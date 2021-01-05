@@ -15,7 +15,51 @@ for i in range(n):
 
     grafo[f'{i}'] = {x: pesos[y] for y, x in enumerate(vizinhos)}
 
-print(grafo)
+print("Grafo: ",grafo)
 
-def dijkstra():
-    pass
+def dijkstra(grafo, origem, destino):
+    menorDistancia = {}
+    track = {}
+    nosRestantes = grafo
+    infinito = float('inf')
+    caminho = []
+
+    # Inicializando a distancia infinita para cada nó
+    for no in nosRestantes:
+        menorDistancia[no] = infinito
+    menorDistancia[str(origem)] = 0
+    # Loop até que todos os nós sejam vizitados
+    while nosRestantes:
+        noMaisCurto = None
+
+        for no in nosRestantes:
+            if noMaisCurto is None:
+                noMaisCurto = no
+            elif menorDistancia[no] < menorDistancia[noMaisCurto]:
+                noMaisCurto = no
+        
+        caminhosPossiveis = grafo[noMaisCurto].items()
+
+        for noFilho, peso in caminhosPossiveis:
+            if peso + menorDistancia[noMaisCurto] < menorDistancia[noFilho]:
+                menorDistancia[noFilho] = peso + menorDistancia[noMaisCurto]
+                track[noFilho] = noMaisCurto
+        
+        nosRestantes.pop(noMaisCurto)
+
+    noAtual = destino
+
+    while noAtual != str(origem):
+        try:
+            caminho.insert(0, noAtual)
+            noAtual = track[noAtual]
+        except KeyError:
+            break
+
+    caminho.insert(0, origem)
+
+    if menorDistancia[str(destino)] < float('inf'):
+        print("Distancia mais curta é ", menorDistancia[str(destino)])
+        print('Caminho ', caminho)
+
+dijkstra(grafo, '0', '2')
