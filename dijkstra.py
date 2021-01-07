@@ -28,27 +28,33 @@ def dijkstra(grafo, origem, destino):
     for no in nosRestantes:
         menorDistancia[no] = infinito
     menorDistancia[str(origem)] = 0
+    
     # Loop até que todos os nós sejam vizitados
     while nosRestantes:
         noMaisCurto = None
-
+        
+        # Procurando o menor nó do grafo
         for no in nosRestantes:
             if noMaisCurto is None:
                 noMaisCurto = no
             elif menorDistancia[no] < menorDistancia[noMaisCurto]:
                 noMaisCurto = no
         
+        # Olha os vizinhos do grafo mais curto
         caminhosPossiveis = grafo[noMaisCurto].items()
 
+        # Mede os pesos entre o menor nó e os seus vizinhos
         for noFilho, peso in caminhosPossiveis:
             if peso + menorDistancia[noMaisCurto] < menorDistancia[noFilho]:
                 menorDistancia[noFilho] = peso + menorDistancia[noMaisCurto]
                 track[noFilho] = noMaisCurto
         
+        # Remove o no do grafo
         nosRestantes.pop(noMaisCurto)
 
     noAtual = destino
 
+    # Gerando caminho se possivel fazendo um trackback do caminho dos nós
     while noAtual != str(origem):
         try:
             caminho.insert(0, noAtual)
