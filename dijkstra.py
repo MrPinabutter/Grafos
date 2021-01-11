@@ -12,8 +12,7 @@ for i in range(n):
         vizinhos = []
     else:
         vizinhos = [x for x in vizinhos]
-
-    grafo[f'{i}'] = {x: pesos[y] for y, x in enumerate(vizinhos)}
+        grafo[f'{i}'] = {x: pesos[y] for y, x in enumerate(vizinhos)}
 
 print("Grafo: ",grafo)
 
