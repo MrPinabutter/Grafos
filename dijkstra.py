@@ -1,3 +1,5 @@
+import time
+
 # Recebe o numero de vertice, numerados de 0 a n
 n = int(input('Quantos vertices tem o seu grafo? '))
 grafo = {}
@@ -69,4 +71,8 @@ def dijkstra(grafo, origem, destino):
         print('Caminho ', caminho)
 a = input('Digite a origem de busca: ')
 b = input('Digite o destino: ')
+
+inicio = time.time()
 dijkstra(grafo, a, b)
+fim = time.time()
+print(f'Tempo de execução: {fim - inicio}')
